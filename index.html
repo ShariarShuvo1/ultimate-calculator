@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="mainCSS" rel="stylesheet" href="./styles/style-dark.css">
+    <title id = "pageTitle">Ultimate Calculator</title>
+</head>
+<body>
+<div id="header">
+    <a href="#" id="ultimateCalculator"><img id="ultimateCalculatorPicture" src="./images/ultimate-calculator-dark.png" title="Ultimate Calculator"></a>
+    <a href="./base-converter.html" id="baseConverter"><img id="baseConverterPicture" src="./images/base-converter-dark.png" title="Base Converter"></a>
+    <label id="currentTheme" class="switch" title="Light Mode">
+        <input type="checkbox" id="changeTheme" onclick="themeChanger()">
+        <span class="slider round"></span>
+    </label>
+</div>
+<div id="mainBody">
+    <div id="calculatorBody">
+        <p id="displayInput">
+            
+        </p>
+        <p id="displayOutput">
+            
+        </p>
+        <!-- row 1 -->
+        <button id="leftBracket">(</button>
+        <button id="rightBracket">)</button>
+        <button id="percentage">%</button>
+        <button id="clearScreen">AC</button>
+        <button id="backspace"><img id="backspaceImage" src="./images/backspace-icon-dark.png"></button>
+        <!-- row 2 -->
+        <button id="seven">7</button>
+        <button id="eight">8</button>
+        <button id="nine">9</button>
+        <button id="rootOver">&#8730</button>
+        <button id="power">x<sup>n</sup></button>
+        <!-- row 3 -->
+        <button id="four">4</button>
+        <button id="five">5</button>
+        <button id="six">6</button>
+        <button id="multiply">x</button>
+        <button id="divide">/</button>
+        <!-- row 4 -->
+        <button id="one">1</button>
+        <button id="two">2</button>
+        <button id="three">3</button>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+        <!-- row 5 -->
+        <button id="zero">0</button>
+        <button id="doubleZero">00</button>
+        <button id="point">.</button>
+        <button id="lastOutput">Ans</button>
+        <button id="equal">=</button>
+    </div>
+    <div id="history">
+        <h3 id="historyTitle">History</h3>
+        <div id="historyBox">
+            
+        </div>
+    </div>
+</div>
+<script src="./scripts/theme-script.js"></script>
+</body>
+</html>

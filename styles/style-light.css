@@ -1,0 +1,230 @@
+body{
+    background-color: rgb(219, 219, 219);
+    color: black;
+    margin: 0px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#header{
+    height: 100px;
+    background-color: white;
+    padding-left: 10px;
+    width: 100%;
+}
+#ultimateCalculatorPicture{
+    content: url(..//images/ultimate-calculator-light.png);
+    height: 100px;
+}
+#ultimateCalculatorPicture:hover{
+    content: url(../images/ultimate-calculator-hover.png);
+    background-color:rgb(219, 219, 219);
+}
+#ultimateCalculatorPicture:active{
+    content: url(../images/ultimate-calculator-press.png);
+}
+#baseConverterPicture{
+    content: url(../images/base-converter-light.png);
+    height: 100px;
+    margin-left: 10px;
+}
+#baseConverterPicture:hover{
+    content: url(../images/base-converter-hover.png);
+    background-color:rgb(219, 219, 219);
+}
+#baseConverterPicture:active{
+    content: url(../images//base-converter-press.png);
+}
+
+
+
+
+.switch {
+    position: absolute;
+    display: inline-block;
+    margin-top: 33px;
+    right:0px;
+    margin-right: 10px;
+    width: 60px;
+    height: 34px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: black;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px black;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: white;
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+#mainBody{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto;
+    position: absolute;
+    gap: 10px;
+    padding-left: 10px;
+}
+#calculatorBody{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap:1px;
+    background-color: rgb(219, 219, 219);
+    border: 1px solid red;
+}
+#calculatorBody>button{
+    text-align: center;
+    font-size: 30px;
+    height: 70px;
+    width: 70px;
+    border-radius: 15%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border:1px solid red;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition-duration: 0.3s;
+}
+#calculatorBody>button:hover{
+    background-color: rgb(0, 255, 255);
+    color: black;
+    cursor: pointer;
+}
+#calculatorBody>button:active{
+    background-color: rgb(0, 255, 187);
+    color: black;
+    cursor: pointer;
+}
+#backspaceImage{
+    content: url(../images/backspace-icon-light.jpeg);
+    width: 40px;
+    height: 40px;
+    padding-top: 6px;
+}
+#displayInput,#displayOutput{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    margin: 0px;
+    height: 90px;
+    width:344px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 50px;
+    overflow: scroll;
+}
+#displayInput::-webkit-scrollbar,#displayOutput::-webkit-scrollbar{
+    background-color: white;
+    height: 10px;
+    width: 0px;
+}
+#displayInput::-webkit-scrollbar-thumb,#displayOutput::-webkit-scrollbar-thumb{
+    background-color: blue;
+}
+#displayInput{
+    background-color: white;
+}
+
+
+
+
+
+#history{
+    background-color: white;
+    color: black;
+}
+#historyTitle{
+    background-color: red;
+    font-size: 50px;
+    width: 344px;
+    text-align: center;
+    margin: 0px;
+}
+#historyBox{
+    border: 1px red solid;
+    height: 478px;
+    overflow: scroll;
+    background-color: rgb(191, 164, 216);
+}
+#historyBox::-webkit-scrollbar{
+    background-color: white;
+    height: 0px;
+    width: 10px;
+}
+#historyBox::-webkit-scrollbar-thumb{
+    background-color: blue;
+}
+#historyBox>div{
+    font-size: 40px;
+    margin: 3px;
+    border: 1px solid red;
+    background-color: white;
+}
+#historyBox>div>p{
+    background-color: white;
+    margin: 0px;
+    padding: 2px;
+    overflow: scroll;
+    width: 320px;
+}
+#historyBox>div>p::-webkit-scrollbar{
+    background-color: white;
+    width: 0px;
+    height: 10px;
+}
+#historyBox>div>p::-webkit-scrollbar-thumb{
+    background-color: blue;
+}
+#historyBox>div>.topHistoryPara{
+    background-color: white;
+    color: rgb(110, 110, 110);
+}
+#historyBox>div>.downHistoryPara{
+    background-color: rgb(232, 232, 232);
+}
+#historyBox>div>p:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
