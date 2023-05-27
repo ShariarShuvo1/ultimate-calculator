@@ -126,7 +126,6 @@ body{
     color: white;
     border:1px solid blue;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    transition-duration: 0.3s;
 }
 #calculatorBody>button:hover{
     background-color: rgb(0, 255, 255);
