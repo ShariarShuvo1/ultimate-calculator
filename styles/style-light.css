@@ -6,42 +6,64 @@ body{
 }
 
 #header{
-    height: 100px;
+    height: 60px;
     background-color: white;
     padding-left: 10px;
     width: 100%;
 }
-#ultimateCalculatorPicture{
-    content: url(../images/ultimate-calculator-light.png);
-    height: 100px;
-}
-#ultimateCalculatorPicture:hover{
-    content: url(../images/ultimate-calculator-hover.png);
-    background-color:rgb(219, 219, 219);
-}
-#ultimateCalculatorPicture:active{
-    content: url(../images/ultimate-calculator-press.png);
-}
-#baseConverterPicture{
-    content: url(../images/base-converter-light.png);
-    height: 100px;
-    margin-left: 10px;
-}
-#baseConverterPicture:hover{
-    content: url(../images/base-converter-hover.png);
-    background-color:rgb(219, 219, 219);
-}
-#baseConverterPicture:active{
-    content: url(../images//base-converter-press.png);
+
+.Pages{
+    display: grid;
+    grid-template-columns: auto auto;
+    position:absolute;
+    color: rgb(106, 106, 106);
 }
 
 
+.Pages>p{
+    height: 15px;
+    width: 15px;
+    margin: 1px;
+    padding: 3px;
+    font-size: 15px;
+    font-weight: bolder;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+#ultimateCalculatorPage{
+    margin-top: 5px;
+    transition: 0.5s;
+}
+#ultimateCalculatorPage:hover{
+    background-color: rgb(219, 219, 219);
+    margin-top: 20px;
+    color: black;
+}
+#ultimateCalculatorPage:active{
+    background-color: greenyellow;
+    color: black;
+}
+#baseConverterPage{
+    margin-left: 80px;
+    margin-top: 5px;
+    transition: 0.5s;
+}
+#baseConverterPage:hover{
+    background-color: rgb(219, 219, 219);
+    margin-top: 20px;
+    color: black;
+}
+#baseConverterPage:active{
+    background-color: greenyellow;
+    color: black;
+}
 
 
 .switch {
     position: absolute;
     display: inline-block;
-    margin-top: 33px;
+    margin-top: 13px;
     right:0px;
     margin-right: 10px;
     width: 60px;

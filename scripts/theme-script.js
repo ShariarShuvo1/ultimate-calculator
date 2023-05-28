@@ -16,22 +16,28 @@ function themeChanger(){
     }
     localStorage.setItem('theme',JSON.stringify(lastTheme));
     let currentThemeData = document.getElementById("currentTheme");
-    let backgroundColorForNavBar ='';
-    if(currentThemeData.title==="Dark Mode"){
-        backgroundColorForNavBar = "rgb(219, 219, 219)";
-    }
-    else{
-        backgroundColorForNavBar = "rgb(28, 28, 28)";
-    }
-    let currentPage = document.getElementById("pageTitle").innerHTML;
-    if(currentPage ==="Ultimate Calculator"){
-        document.getElementById('ultimateCalculatorPicture').style.backgroundColor= backgroundColorForNavBar;
-        document.getElementById('ultimateCalculatorPicture').style.content = 'url(./images/ultimate-calculator-press.png)';
-    }
-    else{
-        document.getElementById('baseConverterPicture').style.backgroundColor= backgroundColorForNavBar;
-        document.getElementById('baseConverterPicture').style.content = 'url(./images/base-converter-press.png)';
-    }
+let backgroundColorForNavBar ='';
+let textColorDuringHover ='';
+if(currentThemeData.title==="Dark Mode"){
+    backgroundColorForNavBar = "rgb(219, 219, 219)";
+    textColorDuringHover = 'black'
+}
+else{
+    backgroundColorForNavBar = "rgb(36, 36, 36)";
+    textColorDuringHover = 'white'
+}
+let currentPage = document.getElementById("pageTitle").innerHTML;
+if(currentPage ==="Ultimate Calculator"){
+    document.getElementById('ultimateCalculatorPage').style.backgroundColor= backgroundColorForNavBar;
+    document.getElementById('ultimateCalculatorPage').style.color=textColorDuringHover;
+    document.getElementById('ultimateCalculatorPage').style.marginTop ='20px';
+}
+else{
+    document.getElementById('baseConverterPage').style.backgroundColor= backgroundColorForNavBar;
+    document.getElementById('baseConverterPage').style.color=textColorDuringHover;
+    document.getElementById('baseConverterPage').style.marginTop ='20px';
+}
+
 }
 
 const lastTheme = JSON.parse(localStorage.getItem('theme')) || {
@@ -49,20 +55,25 @@ if(lastTheme.theme === "Light Mode"){
 localStorage.setItem('theme',JSON.stringify(lastTheme));
 let currentThemeData = document.getElementById("currentTheme");
 let backgroundColorForNavBar ='';
+let textColorDuringHover ='';
 if(currentThemeData.title==="Dark Mode"){
     backgroundColorForNavBar = "rgb(219, 219, 219)";
+    textColorDuringHover = 'black'
 }
 else{
-    backgroundColorForNavBar = "rgb(28, 28, 28)";
+    backgroundColorForNavBar = "rgb(36, 36, 36)";
+    textColorDuringHover = 'white'
 }
 let currentPage = document.getElementById("pageTitle").innerHTML;
 if(currentPage ==="Ultimate Calculator"){
-    document.getElementById('ultimateCalculatorPicture').style.backgroundColor= backgroundColorForNavBar;
-    document.getElementById('ultimateCalculatorPicture').style.content = 'url(./images/ultimate-calculator-press.png)';
+    document.getElementById('ultimateCalculatorPage').style.backgroundColor= backgroundColorForNavBar;
+    document.getElementById('ultimateCalculatorPage').style.color=textColorDuringHover;
+    document.getElementById('ultimateCalculatorPage').style.marginTop ='20px';
 }
 else{
-    document.getElementById('baseConverterPicture').style.backgroundColor= backgroundColorForNavBar;
-    document.getElementById('baseConverterPicture').style.content = 'url(./images/base-converter-press.png)';
+    document.getElementById('baseConverterPage').style.backgroundColor= backgroundColorForNavBar;
+    document.getElementById('baseConverterPage').style.color=textColorDuringHover;
+    document.getElementById('baseConverterPage').style.marginTop ='20px';
 }
 
 

@@ -8,14 +8,28 @@
     <title id = "pageTitle">Base Converter</title>
 </head>
 <body>
-<div id="header">
-    <a href="./index.html" id="ultimateCalculator"><img id="ultimateCalculatorPicture" src="./images/ultimate-calculator-dark.png" title="Ultimate Calculator"></a>
-    <a href="#" id="baseConverter"><img id="baseConverterPicture" src="./images/base-converter-dark.png" title="Base Converter"></a>
-    <label id="currentTheme" class="switch" title="Light Mode">
-        <input type="checkbox" id="changeTheme" onclick="themeChanger()">
-        <span class="slider round"></span>
-    </label>
-</div>
+    <div id="header">
+        <a href="./index.html" id="ultimateCalculator">
+            <div class="Pages" id="ultimateCalculatorPage">
+                <p class="leftTopBox baseSignUltimate">+</p>
+                <p class="rightTopBox baseSignUltimate">-</p>
+                <p class="leftBottomBox baseSignUltimate">x</p>
+                <p class="rightBottomBox baseSignUltimate">%</p>
+            </div>
+        </a>
+        <a href="#" id="baseConverter">
+            <div class="Pages" id="baseConverterPage">
+                <p class="leftTopBox baseSignBase">2</p>
+                <p class="rightTopBox baseSignBase">8</p>
+                <p class="leftBottomBox baseSignBase">10</p>
+                <p class="rightBottomBox baseSignBase">16</p>
+            </div>
+        </a>
+        <label id="currentTheme" class="switch" title="Light Mode">
+            <input type="checkbox" id="changeTheme" onclick="themeChanger()">
+            <span class="slider round"></span>
+        </label>
+    </div>
 <div id="mainBody">
     <h1>TBA</h1>
 </div>
