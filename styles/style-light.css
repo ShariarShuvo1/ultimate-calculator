@@ -155,12 +155,7 @@ body{
     color: white;
     cursor: pointer;
 }
-#backspaceImage:hover{
-    content: url(../images/backspace-icon-dark.png);
-}
-#backspace:hover{
-    content: url(../images/backspace-icon-dark.png);
-}
+
 #calculatorBody>button:active{
     background-color: rgb(1, 255, 1);
     color: black;
@@ -181,11 +176,9 @@ body{
     color: black;
     cursor: pointer;
 }
-#backspaceImage{
-    content: url(../images/backspace-icon-light.jpeg);
-    width: 40px;
-    height: 40px;
+#backspaceButton{
     padding-top: 6px;
+    font-size: 35px;
 }
 #displayInput,#displayOutput{
     grid-column-start: 1;

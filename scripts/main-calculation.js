@@ -18,6 +18,15 @@ function keyboardVerify(key){
         if(key == 'Backspace'){
             equationBackspace();
         }
+        else if(key=='Enter'|| key=='='){
+            clickedEnter();
+        }
+        else if(key=='%'){
+            findPercentage();
+        }
+        else if(key=='^'){
+            findPower();
+        }
     }
 }
 
@@ -83,7 +92,7 @@ function signFinder(char){
     let signes = ['+','-','x','/'];
     let sign = false;
     for (let i = 0 ; i<signes.length;i++){
-        if (char==signes[i]){
+        if (char===signes[i]){
             sign=true;
             break
         }
@@ -92,6 +101,9 @@ function signFinder(char){
 }
 
 function validEquation(){
+    if(signFinder(equation[equation.length-1])){
+        return false;
+    }
     let s = equation;
     let valid = true;
     let arr = [];
@@ -99,7 +111,7 @@ function validEquation(){
         if(s[i]!='(' && s[i]!=')'){
             arr.push(s[i]);
         }
-        if(signFinder(s[i]) && signFinder(s[i+1])){
+        if(signFinder(s[i])==true && signFinder(s[i+1])==true){
             valid=false;
             break
         }
@@ -108,7 +120,7 @@ function validEquation(){
         return valid;
     }
     for(let i = 0 ; i<arr.length-1;i++){
-        if(signFinder(arr[i]) == signFinder(arr[i+1])){
+        if(signFinder(arr[i]) ==true && signFinder(arr[i+1])==true){
             valid=false;
             break
         }
@@ -116,54 +128,54 @@ function validEquation(){
     return valid;
 }
 
-function infixToPostfix(){
+function infixToPostfix(eqn){
     let stack=[];
-    let equ = '';
-    for(let i = 0 ; i<equation.length;i++){
-        if(!signFinder(equation[i]) && equation[i]!=='(' && equation[i]!==')'){
-            equ+=equation[i];
+    let equ = [];
+    for(let i = 0 ; i<eqn.length;i++){
+        if(!signFinder(eqn[i]) && eqn[i]!=='(' && eqn[i]!==')'){
+            equ.push(eqn[i]);
         }
-        else if(equation[i]=='('){
-            stack.push(equation[i]);
+        else if(eqn[i]=='('){
+            stack.push(eqn[i]);
         }
-        else if(equation[i]==')'){
+        else if(eqn[i]==')'){
             while(stack[stack.length-1]!='('){
-                equ+=stack[stack.length-1];
+                equ.push(stack[stack.length-1]);
                 stack.pop();
             }
             stack.pop();
         }
-        else if(equation[i]=='+'){
+        else if(eqn[i]=='+'){
             if(stack.length==0){
-                stack.push(equation[i]);
+                stack.push(eqn[i]);
             }
             else if(stack[stack.length-1]=='('){
-                stack.push(equation[i]);
+                stack.push(eqn[i]);
             }
             else{
                 while(stack.length!= 0 && stack[stack.length-1]!='('){
-                    equ+=stack[stack.length-1];
+                    equ.push(stack[stack.length-1]);
                     stack.pop();
                 }
-                stack.push(equation[i]);
+                stack.push(eqn[i]);
             }
         }
-        else if(equation[i]=='-'){
+        else if(eqn[i]=='-'){
             if(stack.length==0){
-                stack.push(equation[i]);
+                stack.push(eqn[i]);
             }
             else if(stack[stack.length-1]=='('){
-                stack.push(equation[i]);
+                stack.push(eqn[i]);
             }
             else{
                 while(stack.length!= 0 && stack[stack.length-1]!='('){
-                    equ+=stack[stack.length-1];
+                    equ.push(stack[stack.length-1]);
                     stack.pop();
                 }
-                stack.push(equation[i]);
+                stack.push(eqn[i]);
             }
         }
-        else if(equation[i]=='x'){
+        else if(eqn[i]=='x'){
             if(stack.length==0){
                 stack.push('*');
             }
@@ -172,13 +184,13 @@ function infixToPostfix(){
             }
             else{
                 while(stack.length!= 0 && stack[stack.length-1]=='/'){
-                    equ+=stack[stack.length-1];
+                    equ.push(stack[stack.length-1]);
                     stack.pop();
                 }
                 stack.push('*');
             }
         }
-        else if(equation[i]=='/'){
+        else if(eqn[i]=='/'){
             if(stack.length==0){
                 stack.push('/');
             }
@@ -187,26 +199,26 @@ function infixToPostfix(){
             }
             else{
                 while(stack.length!= 0 && stack[stack.length-1]=='*'){
-                    equ+=stack[stack.length-1];
+                    equ.push(stack[stack.length-1]);
                     stack.pop();
                 }
-                stack.push(equation[i]);
+                stack.push(eqn[i]);
             }
         }
     }
     while(stack.length!=0){
-        equ+=stack[stack.length-1];
+        equ.push(stack[stack.length-1]);
         stack.pop();
     }
     return equ;
 }
 
 function digitChecker(digit){
-    let digits = ['0','1','2','3','4','5','6','7','8','9'];
-    let isDigit = false;
+    let digits = ['+','-','*','/'];
+    let isDigit = true;
     for(let i = 0;i<digits.length;i++){
-        if(digit==digits[i]){
-            isDigit=true;
+        if(digit===digits[i]){
+            isDigit=false;
             break;
         }
     }
@@ -243,16 +255,39 @@ function postfixToInfix(equ){
     return String(stack[0]);
 }
 
+function stringToArr(){
+    let eqn=[];
+    let s = '';
+    for(let i = 0; i<equation.length;i++){
+        if(equation[i] === '0'||equation[i] === '1'||equation[i] === '2'||equation[i] === '3'||equation[i] === '4'||equation[i] === '5'||equation[i] === '6'||equation[i] === '7'||equation[i] === '8'||equation[i] === '9'||equation[i] === '.'){
+            s+=equation[i];
+        }
+        else{
+            if(s.length!=0){
+                eqn.push(s);
+                s='';
+            }
+            eqn.push(equation[i]);
+        }
+    }
+    if(s.length!=0){
+        eqn.push(s);
+    }
+    return eqn;
+}
+
 function calculate(){
     let isValidParenthesis = validParenthesis();
     let isValidEquation = validEquation();
     if(isValidParenthesis && isValidEquation){
-        let postFixEquation = infixToPostfix();
+        let eqn = stringToArr();
+        let postFixEquation = infixToPostfix(eqn);
         let outputText = postfixToInfix(postFixEquation);
         if(outputText=='NaN' || outputText=='undefined'){
             outputDisplay('');
         }
         else{
+            ans=outputText;
             outputDisplay(outputText);
         }
     }
@@ -270,6 +305,7 @@ function equationBuilder(digit){
 }
 
 let equation='';
+let ans;
 
 // row 1
 let leftBracket = document.getElementById('leftBracket');
@@ -306,12 +342,60 @@ let displayInput = document.getElementById('displayInput');
 let displayOutput = document.getElementById('displayOutput');
 let historyBox = document.getElementById('historyBox');
 
+function findPercentage(){
+    if(ans.length>0){
+        let str = `${ans}%`
+        equationDisplay(str);
+        ans = String(Number(ans)/100);
+        outputDisplay(ans);
+    }
+}
+
+function findRoot(){
+    if(ans.length>0){
+        let str = `&#8730(${ans})`
+        equationDisplay(str);
+        ans = String(Math.sqrt(Number(ans)));
+        outputDisplay(ans);
+    }
+}
+
+function findPower(){
+    if(ans.length>0){
+        let str = `(${ans})<sup>2</sup>`
+        equationDisplay(str);
+        ans = String(Math.pow(Number(ans),2));
+        outputDisplay(ans);
+    }
+}
+
+function clickedEnter(){
+    let displayText = displayInput.innerHTML;
+    let outputText = displayOutput.innerHTML;
+    let mydiv = document.createElement('div');
+    let p1 = document.createElement('p');
+    p1.setAttribute('class','topHistoryPara');
+    p1.innerHTML = displayText;
+    let p2 = document.createElement('p');
+    p2.setAttribute('class','downHistoryPara');
+    p2.innerHTML = outputText;
+    mydiv.appendChild(p1);
+    mydiv.appendChild(p2);
+    historyBox.appendChild(mydiv);
+    equation='';
+}
+
 leftBracket.addEventListener('click',function(){equationBuilder('(')});
 rightBracket.addEventListener('click',function(){equationBuilder(')')});
+percentage.addEventListener('click',findPercentage);
+clearScreen.addEventListener('click',equationClear);
+backspace.addEventListener('click',equationBackspace);
 
 seven.addEventListener('click',function(){equationBuilder('7')});
 eight.addEventListener('click',function(){equationBuilder('8')});
 nine.addEventListener('click',function(){equationBuilder('9')});
+rootOver.addEventListener('click',findRoot);
+power.addEventListener('click',findPower);
 
 four.addEventListener('click',function(){equationBuilder('4')});
 five.addEventListener('click',function(){equationBuilder('5')});
@@ -328,9 +412,9 @@ minus.addEventListener('click',function(){equationBuilder('-')});
 zero.addEventListener('click',function(){equationBuilder('0')});
 doubleZero.addEventListener('click',function(){equationBuilder('00')});
 point.addEventListener('click',function(){equationBuilder('.')});
-
-clearScreen.addEventListener('click',equationClear);
-backspace.addEventListener('click',equationBackspace);
-
+lastOutput.addEventListener('click',function(){equation=ans;
+    equationDisplay(equation);
+    calculate();});
+equal.addEventListener('click',clickedEnter);
 
 document.addEventListener('keydown',function(e){keyboardVerify(e.key);})
