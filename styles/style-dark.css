@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(28, 28, 28);
+    background-color: rgb(36, 36, 36);
     color: white;
     margin: 0px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -17,7 +17,7 @@ body{
 }
 #ultimateCalculatorPicture:hover{
     content: url(../images/ultimate-calculator-hover.png);
-    background-color:rgb(28, 28, 28);
+    background-color:rgb(36, 36, 36);
 }
 #ultimateCalculatorPicture:active{
     content: url(../images/ultimate-calculator-press.png);
@@ -29,7 +29,7 @@ body{
 }
 #baseConverterPicture:hover{
     content: url(../images/base-converter-hover.png);
-    background-color:rgb(28, 28, 28);
+    background-color:rgb(36, 36, 36);
 }
 #baseConverterPicture:active{
     content: url(../images//base-converter-press.png);
@@ -114,7 +114,9 @@ body{
     grid-template-columns: auto auto auto auto auto;
     gap:1px;
     background-color: (28, 28, 28);
-    border: 1px solid blue;
+    border-radius: 11px;
+    background-color: black;
+    border: 1px solid white;
 }
 #calculatorBody>button{
     text-align: center;
@@ -122,18 +124,39 @@ body{
     height: 70px;
     width: 70px;
     border-radius: 15%;
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     color: white;
-    border:1px solid blue;
+    border:1px solid white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #calculatorBody>button:hover{
-    background-color: rgb(0, 255, 255);
+    background-color: white;
     color: black;
     cursor: pointer;
 }
+#backspaceImage:hover{
+    content: url(../images/backspace-icon-light.jpeg);
+}
+#backspace:hover{
+    content: url(../images/backspace-icon-dark.png);
+}
 #calculatorBody>button:active{
-    background-color: rgb(0, 255, 187);
+    background-color: rgb(1, 255, 1);
+    color: black;
+    cursor: pointer;
+}
+#calculatorBody>#clearScreen:active{
+    background-color: red;
+    color: black;
+    cursor: pointer;
+}
+#calculatorBody>#backspace:active{
+    background-color: red;
+    color: black;
+    cursor: pointer;
+}
+#calculatorBody>#equal:active{
+    background-color: blue;
     color: black;
     cursor: pointer;
 }
@@ -158,11 +181,13 @@ body{
     height: 10px;
     width: 0px;
 }
-#displayInput::-webkit-scrollbar-thumb,#displayOutput::-webkit-scrollbar-thumb{
-    background-color: red;
-}
 #displayInput{
-    background-color: black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px white solid;
+}
+#displayOutput{
+    border-bottom: 1px white solid;
 }
 
 
@@ -172,55 +197,69 @@ body{
 #history{
     background-color: black;
     color: white;
+    border-radius: 10px;
+    border: 1px solid white;
 }
 #historyTitle{
-    background-color: blue;
     font-size: 50px;
     width: 344px;
     text-align: center;
     margin: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px white solid;
 }
 #historyBox{
-    border: 1px blue solid;
     height: 478px;
     overflow: scroll;
-    background-color: rgb(21, 3, 38);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 #historyBox::-webkit-scrollbar{
-    background-color: black;
     height: 0px;
     width: 10px;
+    border-bottom-right-radius: 100px;
 }
-#historyBox::-webkit-scrollbar-thumb{
-    background-color: red;
+::-webkit-scrollbar-thumb{
+    border: 1px white solid;
+    border-radius: 10px;
+}
+:hover::-webkit-scrollbar-thumb{
+    background-color: white;
+    border: 1px black solid;
 }
 #historyBox>div{
     font-size: 40px;
     margin: 3px;
-    border: 1px solid blue;
-    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
 }
-#historyBox>div>p{
+.topHistoryPara,.downHistoryPara{
     background-color: black;
     margin: 0px;
     padding: 2px;
-    overflow: scroll;
     width: 320px;
+    overflow: scroll;
 }
 #historyBox>div>p::-webkit-scrollbar{
     background-color: black;
     width: 0px;
     height: 10px;
+
 }
-#historyBox>div>p::-webkit-scrollbar-thumb{
-    background-color: red;
+
+.topHistoryPara{
+    border-bottom: 1px white solid;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
 }
-#historyBox>div>.topHistoryPara{
-    background-color: black;
-    color: rgb(113, 113, 113);
+.downHistoryPara{
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
 }
-#historyBox>div>.downHistoryPara{
-    background-color: rgb(23, 23, 23);
+.downHistoryPara::-webkit-scrollbar{
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 #historyBox>div>p:hover{
     background-color: rgb(255, 255, 255);
